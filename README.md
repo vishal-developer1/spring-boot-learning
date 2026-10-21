@@ -90,9 +90,6 @@ spring-boot-learning/
 ```
 
 ## Author
-
+vishal
 Java and Spring Boot learning projects.
 
-## License
-
-This project is intended for learning and educational purposes.
