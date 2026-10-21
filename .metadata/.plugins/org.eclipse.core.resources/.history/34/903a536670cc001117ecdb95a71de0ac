@@ -1,0 +1,39 @@
+package com.vp.dao;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Repository;
+
+import com.vp.entity.User;
+
+@Repository
+public class UserDao {
+	
+	private SessionFactory factory;
+
+	public UserDao(SessionFactory factory) {
+		super();
+		this.factory = factory;
+	}
+	
+	public boolean addUser(User user) {
+		
+		boolean isAdded=false;
+		
+		try {
+			Session session =factory.openSession();
+			session.save(user);
+			session.beginTransaction().commit();
+			isAdded=true;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			isAdded=false;
+			
+		}
+		return isAdded;
+		
+		
+	}
+
+}

@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div class="page">
+    <div class="register-card">
+
+        <div class="form-header">
+            <h1>Create Account</h1>
+            <p>Register to get started</p>
+        </div>
+
+        <div class="success-message"
+             th:if="${message}"
+             th:text="${message}">
+        </div>
+
+        <div class="error-message"
+             th:if="${error}"
+             th:text="${error}">
+        </div>
+
+        <form th:action="@{/register}"
+              th:object="${user}"
+              method="post">
+
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text"
+                       id="name"
+                       th:field="*{name}"
+                       placeholder="Enter your full name"
+                       autocomplete="name"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email"
+                       id="email"
+                       th:field="*{email}"
+                       placeholder="Enter your email"
+                       autocomplete="email"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password"
+                       id="password"
+                       th:field="*{password}"
+                       placeholder="Create a password"
+                       autocomplete="new-password"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label for="phoneno">Phone Number</label>
+                <input type="tel"
+                       id="phoneno"
+                       th:field="*{phoneno}"
+                       placeholder="Enter your phone number"
+                       autocomplete="tel"
+                       required>
+            </div>
+
+            <button type="submit" class="register-btn">
+                Create Account
+            </button>
+
+        </form>
+
+        <p class="login-link">
+            Already have an account?
+            <a th:href="@{/login}">Login</a>
+        </p>
+
+    </div>
+</div>
+
+</body>
+</html>

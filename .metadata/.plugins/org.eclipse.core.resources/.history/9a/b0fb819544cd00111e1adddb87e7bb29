@@ -1,0 +1,5 @@
+package com.vp.Repository;
+
+public class StudentRepository {
+
+}

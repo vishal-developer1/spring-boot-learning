@@ -1,0 +1,11 @@
+package com.vp.servies;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public interface UserServies 
+{
+	
+	public boolean registerUser(UserServies user);
+
+}

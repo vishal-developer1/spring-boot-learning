@@ -1,0 +1,14 @@
+package com.vp.servies;
+
+public class UserImpl implements User{
+
+	
+	private U
+	
+	@Override
+	public boolean registerUser(User user) {
+		
+		return false;
+	}
+
+}

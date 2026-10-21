@@ -1,0 +1,61 @@
+<%@page import="com.tka.entity.User"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Home</title>
+</head>
+<body>
+	<a href="all-user">Show All User</a>
+	<br>
+	<br>
+
+
+	<%
+	List<User> list = (List<User>) request.getAttribute("users");
+
+	if (list != null) {
+	%>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Username</th>
+				<th>Password</th>
+				<th>Gender</th>
+				<th>Mobile</th>
+			</tr>
+		</thead>
+
+		<%
+		for (User user : list) {
+		%>
+
+
+		<tbody>
+
+			<tr>
+				<td><%=user.getUsername()%></td>
+				<td><%=user.getPassword()%></td>
+				<td><%=user.getGender()%></td>
+				<td><%=user.getMobile()%></td>
+			</tr>
+
+			<%
+			}
+
+			}
+			%>
+
+		</tbody>
+
+	</table>
+
+	<!-- Scriptlet -->
+
+
+</body>
+</html>

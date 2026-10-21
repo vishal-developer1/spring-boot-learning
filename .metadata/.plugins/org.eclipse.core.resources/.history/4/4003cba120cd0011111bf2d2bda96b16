@@ -1,0 +1,10 @@
+package com.vp.servies;
+
+
+
+public interface UserServies 
+{
+	
+	public boolean registerUser(UserServies user);
+
+}

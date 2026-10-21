@@ -1,0 +1,20 @@
+package com.vp.model;
+
+
+public class Student {
+	
+	
+	private Integer  id;
+	private String name;
+	private String email;
+	private String course;
+	
+	public Student() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+	
+}
+
+	

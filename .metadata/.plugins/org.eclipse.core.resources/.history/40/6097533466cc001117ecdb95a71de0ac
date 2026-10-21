@@ -1,0 +1,100 @@
+<html>
+<head>
+<title>Add User</title>
+<style type="text/css">
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #d9a7c7, #fffcdc);
+    padding: 40px;
+  }
+
+  h1 {
+    text-align: center;
+    color: #4a148c;
+    margin-bottom: 30px;
+  }
+
+  form {
+    max-width: 500px;
+    margin: auto;
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  }
+
+  label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #333;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: border 0.3s;
+  }
+
+  input[type="text"]:focus {
+    border-color: #7b1fa2;
+    outline: none;
+  }
+
+  input[type="radio"] {
+    margin-left: 10px;
+    margin-right: 5px;
+  }
+
+  .radio-group {
+    margin-bottom: 20px;
+    color: #555;
+  }
+
+  input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #7b1fa2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #4a148c;
+  }
+</style>
+
+</style>
+</head>
+
+<body>
+	<h1>Add User</h1>
+
+	<form action="add-user-data" method="post">
+
+		<label>First Name</label> &nbsp; <input type="text" name="firstName">
+
+		<br>
+		<br> <label>Last Name</label> &nbsp; <input type="text"
+			name="lastName"> <br>
+		<br> <label>Mail</label> &nbsp; <input type="text" name="mail">
+
+		<br>
+		<br> Male : <input type="radio" name="gender" value="male">
+		&nbsp; Female : <input type="radio" name="gender" value="female">
+
+		<br>
+		<br> <input type="submit" value="Add User">
+
+	</form>
+</body>
+
+</html>

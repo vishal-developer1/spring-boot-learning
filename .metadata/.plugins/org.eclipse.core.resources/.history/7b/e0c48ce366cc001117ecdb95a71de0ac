@@ -1,0 +1,20 @@
+package com.vp.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.vp.entity.User;
+
+@Controller
+public class UserController {
+
+	@PostMapping("/add-user")
+	public String addUserData(@ModelAttribute User user) {
+
+		System.out.println(user);
+		return "add-user-data";
+
+	}
+	
+}

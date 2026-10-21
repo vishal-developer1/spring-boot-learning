@@ -1,0 +1,16 @@
+package com.vp.servies;
+
+import com.vp.repository.UserRepository;
+
+public class UserImpl implements UserServies{
+
+	
+	private UserRepository userRepository;
+	
+	@Override
+	public boolean registerUser(UserServies user) {
+		
+		return false;
+	}
+
+}

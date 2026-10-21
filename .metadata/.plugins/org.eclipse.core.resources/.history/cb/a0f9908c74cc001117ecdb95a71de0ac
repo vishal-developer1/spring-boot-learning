@@ -1,0 +1,80 @@
+package com.tka.dao;
+
+import java.util.List;
+
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.tka.entity.User;
+
+@Repository
+public class UserDao {
+
+	@Autowired
+	private SessionFactory factory;
+
+	public boolean register(User user) {
+		boolean isRegistered = false;
+		Session session = null;
+		try {
+			session = factory.openSession();
+			session.save(user);
+			session.beginTransaction().commit();
+			isRegistered = true;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			isRegistered = false;
+		} finally {
+			session.close();
+		}
+		return isRegistered;
+	}
+
+	public boolean login(String username, String password) {
+		boolean isLogedIn = false;
+		Session session = null;
+		try {
+			session = factory.openSession();
+			User user = session.get(User.class, username);
+
+			if (user != null) {
+
+				if (user.getPassword().equals(password)) {
+					isLogedIn = true;
+				} else {
+					isLogedIn = false;
+				}
+
+			} else {
+				isLogedIn = false;
+			}
+
+		} catch (Exception e) {
+			e.fillInStackTrace();
+		} finally {
+			session.close();
+		}
+		return isLogedIn;
+	}
+
+	public List<User> getAllUser() {
+		Session session = null;
+		List<User> list = null;
+		try {
+			session = factory.openSession();
+			Criteria criteria = session.createCriteria(User.class);
+			list = criteria.list();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+
+		}
+		return list;
+	}
+
+}

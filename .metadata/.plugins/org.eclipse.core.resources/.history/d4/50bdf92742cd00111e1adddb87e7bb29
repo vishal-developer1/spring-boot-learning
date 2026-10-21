@@ -1,0 +1,59 @@
+package com.vp.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.vp.entity.Employee;
+import com.vp.repository.EmployeeRepository;
+
+@Controller
+@RequestMapping("/employees")
+public class EmployeeController {
+
+	@Autowired
+    private final EmployeeRepository repository;
+
+    public EmployeeController(EmployeeRepository repository) {
+        this.repository = repository;
+    }
+
+    @GetMapping("/")
+    public String listEmployees(Model model) {
+        model.addAttribute("employees", repository.findAll());
+        return "employees";
+    }
+
+    @GetMapping("/new")
+    public String showForm(Model model) {
+        model.addAttribute("employee", new Employee());
+        return "employee-form";
+    }
+
+    @PostMapping("/save")
+    public String saveEmployee(@ModelAttribute Employee employee) {
+        repository.save(employee);
+        return "redirect:/employees";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String editEmployee(@PathVariable Long id, Model model) {
+        Employee employee = repository.findById(id)
+                .orElseThrow(() ->
+                        new IllegalArgumentException("Invalid employee ID"));
+
+        model.addAttribute("employee", employee);
+        return "employee-form";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteEmployee(@PathVariable Long id) {
+        repository.deleteById(id);
+        return "redirect:/employees";
+    }
+}

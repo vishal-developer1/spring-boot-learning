@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+
+<style type="text/css">
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 200px
+}
+
+h2 {
+	color: blue;
+	font-family: sans-serif;
+	text-align: center;
+	text-decoration: underline;
+}
+
+h3 {
+	color: red;
+	font-family: sans-serif;
+	text-align: center;
+	text-decoration: underline;
+}
+</style>
+
+</head>
+<body>
+
+	<form action="login" method="post">
+		<h2>Login</h2>
+		<h3>${msg}</h3>
+		Username : <input type="text" name="username"><br> <br>
+
+		Password : <input type="text" name="password"> <br> <br>
+
+		<input type="submit" value="Login"> <br> <br> 
+		<a href="register-page">Click Here to Register</a>
+
+	</form>
+</body>
+</html>

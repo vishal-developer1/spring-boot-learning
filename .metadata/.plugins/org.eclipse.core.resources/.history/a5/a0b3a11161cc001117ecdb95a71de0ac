@@ -1,0 +1,15 @@
+package com.vp;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@org.springframework.stereotype.Controller
+public class TesController {
+
+	@RequestMapping("/")
+	public String msg() {
+		return "Hello World!";
+	}
+
+	}
+
+

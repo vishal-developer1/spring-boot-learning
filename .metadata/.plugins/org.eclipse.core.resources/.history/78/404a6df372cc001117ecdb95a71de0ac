@@ -1,0 +1,46 @@
+package com.vp.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.vp.entity.User;
+import com.vp.service.UserService;
+
+@Controller
+public class UserController {
+
+	@Autowired
+	private UserService service;
+
+	@PostMapping("/add-user")
+	public String addUserData(@ModelAttribute User user, Model model) {
+
+		boolean isAdded = service.addUser(user);
+
+		if (isAdded) {
+			model.addAttribute("msg", "User added successfully!");
+			return "add-user";
+		} else {
+			model.addAttribute("msg", "Something went wrong!");
+		}
+
+		return "add-user";
+	}
+
+	@GetMapping("/all-users")
+	public String AllUsers(Model model) {
+
+		List<User> list = service.AllUsers();
+
+		model.addAttribute("users", list);
+
+		return "all-users";
+	}
+
+}

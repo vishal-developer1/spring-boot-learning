@@ -1,0 +1,19 @@
+package com.vp.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.vp.entity.User;
+
+@Controller
+public class Mycontroller {
+	
+	@GetMapping("/register")
+	public String RegisterPage(Model model) 
+	{
+		model.addAttribute("user",new User());
+		return "Register";
+	}
+
+}

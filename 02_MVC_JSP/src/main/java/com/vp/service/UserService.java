@@ -1,0 +1,27 @@
+package com.vp.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.vp.dao.UserDao;
+import com.vp.entity.User;
+
+@Service
+public class UserService {
+
+	@Autowired
+	private UserDao dao;
+
+	public boolean addUser(User user) {
+		return dao.addUser(user);
+
+	}
+
+	public List<User> AllUsers() {
+		return dao.AllUsers();
+	}
+	
+
+}

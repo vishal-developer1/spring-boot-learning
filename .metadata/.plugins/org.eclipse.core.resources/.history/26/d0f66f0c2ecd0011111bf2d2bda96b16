@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>User Profile</title>
+
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+	rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+	<div class="container py-5">
+		<div class="card shadow border-0 mx-auto" style="max-width: 600px;">
+
+			<div class="card-body p-4 p-md-5">
+
+				<div class="text-center mb-4">
+					<i class="bi bi-person-circle text-primary"
+						style="font-size: 4rem;"></i>
+
+					<h2 class="fw-bold mt-3">Welcome to Your Profile!</h2>
+
+					<p class="text-secondary">You have successfully logged in.</p>
+				</div>
+
+				<hr>
+
+				<div class="mb-3">
+					<strong>User ID:</strong> <span th:text="${user.id}"></span>
+				</div>
+
+				<div class="mb-3">
+					<strong>Name:</strong> <span th:text="${user.name}"></span>
+				</div>
+
+				<div class="mb-3">
+					<strong>Email:</strong> <span th:text="${user.email}"></span>
+				</div>
+
+				<div class="mb-4">
+					<strong>Phone Number:</strong> <span th:text="${user.phoneno}"></span>
+				</div>
+
+				<a th:href="@{/loginPage}" class="btn btn-outline-primary w-100">
+					Back to Login </a> <a th:href="@{/logout}" class="btn btn-danger w-100">
+					<i class="bi bi-box-arrow-right me-2"></i> Logout
+				</a>
+
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

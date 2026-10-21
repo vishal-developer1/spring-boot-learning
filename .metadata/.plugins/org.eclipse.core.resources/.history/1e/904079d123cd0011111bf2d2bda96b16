@@ -1,0 +1,29 @@
+package com.vp.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.vp.entity.User;
+import com.vp.services.UserServies;
+
+@Controller
+public class Mycontroller {
+	
+	@Autowired
+	private UserServies userServies;
+	
+	@GetMapping("/register")
+	public String RegisterPage(Model model) 
+	{
+		model.addAttribute("user",new User());
+		return "Register";
+	}
+		
+	 @PostMapping("register")
+	 public String registerUser() {
+		 
+	 }
+}

@@ -1,0 +1,5 @@
+package com.vp.model;
+
+public class Student {
+
+}

@@ -1,0 +1,9 @@
+package com.vp.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import com.vp.entity.User;
+
+public interface User extends JpaRepository<User, Integer> {
+
+    boolean existsByEmail(String email);
+}

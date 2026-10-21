@@ -1,0 +1,34 @@
+package com.vp.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.vp.entity.User;
+
+import javax.servlet.http.HttpServletRequest;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import javax.servlet.http.HttpServletRequest;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class PageController {
+	
+	@GetMapping("/")
+	public String openPage() {
+		return "add-user";
+	}
+	
+	@PostMapping("/add-user")
+	public String addUserData(@ModelAttribute User user) {
+
+		System.out.println(user);
+		return "add-user";
+
+	}
+}
+	
+

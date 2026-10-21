@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>User Registration</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+          rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+<div class="container-fluid register-page">
+    <div class="row min-vh-100 align-items-center justify-content-center">
+
+        <div class="col-12 col-sm-10 col-md-7 col-lg-5 col-xl-4">
+
+            <div class="card register-card border-0 shadow-lg">
+
+                <div class="card-body p-4 p-md-5">
+
+                    <!-- Header -->
+                    <div class="text-center mb-4">
+                        <div class="register-icon mb-3">
+                            <i class="bi bi-person-plus-fill"></i>
+                        </div>
+
+                        <h2 class="fw-bold">Create Account</h2>
+                        <p class="text-secondary">
+                            Fill in your details to get started
+                        </p>
+                    </div>
+
+                    <!-- Success message -->
+                    <div class="alert alert-success"
+                         role="alert"
+                         th:if="${message}"
+                         th:text="${message}">
+                    </div>
+
+                    <!-- Error message -->
+                    <div class="alert alert-danger"
+                         role="alert"
+                         th:if="${error}"
+                         th:text="${error}">
+                    </div>
+
+                    <!-- Registration form -->
+                    <form th:action="@{/register}"
+                          th:object="${user}"
+                          method="post">
+
+                        <!-- Name -->
+                        <div class="mb-3">
+                            <label for="name" class="form-label">
+                                Full Name
+                            </label>
+
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <i class="bi bi-person"></i>
+                                </span>
+
+                                <input type="text"
+                                       class="form-control"
+                                       id="name"
+                                       th:field="*{name}"
+                                       placeholder="Enter your full name"
+                                       autocomplete="name"
+                                       required>
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label">
+                                Email Address
+                            </label>
+
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <i class="bi bi-envelope"></i>
+                                </span>
+
+                                <input type="email"
+                                       class="form-control"
+                                       id="email"
+                                       th:field="*{email}"
+                                       placeholder="Enter your email"
+                                       autocomplete="email"
+                                       required>
+                            </div>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="mb-3">
+                            <label for="password" class="form-label">
+                                Password
+                            </label>
+
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <i class="bi bi-lock"></i>
+                                </span>
+
+                                <input type="password"
+                                       class="form-control"
+                                       id="password"
+                                       th:field="*{password}"
+                                       placeholder="Create a password"
+                                       autocomplete="new-password"
+                                       minlength="8"
+                                       required>
+                            </div>
+
+                            <div class="form-text">
+                                Use at least 8 characters.
+                            </div>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="mb-4">
+                            <label for="phoneno" class="form-label">
+                                Phone Number
+                            </label>
+
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <i class="bi bi-telephone"></i>
+                                </span>
+
+                                <input type="tel"
+                                       class="form-control"
+                                       id="phoneno"
+                                       th:field="*{phoneno}"
+                                       placeholder="Enter your phone number"
+                                       autocomplete="tel"
+                                       required>
+                            </div>
+                        </div>
+
+                        <!-- Submit -->
+                        <button type="submit"
+                                class="btn btn-primary register-btn w-100">
+                            Create Account
+                            <i class="bi bi-arrow-right ms-2"></i>
+                        </button>
+
+                    </form>
+
+                    <!-- Login link -->
+                    <div class="text-center mt-4">
+                        <span class="text-secondary">
+                            Already have an account?
+                        </span>
+
+                        <a th:href="@{/login}"
+                           class="login-link fw-semibold">
+                            Login
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+            <p class="text-center footer-text mt-3">
+                &copy; 2026 User Registration
+            </p>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

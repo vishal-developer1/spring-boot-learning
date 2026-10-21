@@ -1,0 +1,10 @@
+package com.vp.servies;
+
+import com.vp.entity.*;
+
+public interface User 
+{
+	
+	public boolean registerUser(User user);
+
+}
